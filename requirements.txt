@@ -1,0 +1,17 @@
+streamlit
+streamlit-folium
+folium
+pandas
+numpy
+matplotlib
+scikit-learn
+xgboost
+joblib
+shap
+rasterio
+geopandas
+geopy
+pyproj
+localtileserver
+rio-tiler
+Pillow
