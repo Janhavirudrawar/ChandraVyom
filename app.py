@@ -58,10 +58,10 @@ from utils.scenario import apply_slider_mitigation, run_batch_optimization
 from utils.recommendation import generate_shap_recommendation
 
 # 4. Keep your debug checks—they are incredibly helpful for checking the deployment logs!
-# st.write("Raster folder exists:", os.path.exists("rasters"))
-# if os.path.exists("rasters"):
-#     st.write("Contents of rasters folder:")
-#     st.write(os.listdir("rasters"))
+st.write("Raster folder exists:", os.path.exists("rasters"))
+if os.path.exists("rasters"):
+    st.write("Contents of rasters folder:")
+    st.write(os.listdir("rasters"))
 
 st.markdown("Click anywhere on the map below to analyze local urban heat metrics.")
 
@@ -83,12 +83,12 @@ geolocator = Nominatim(user_agent="uhi_dashboard")
 # ==================================================================
 import os
 
-# st.write("Current working directory:", os.getcwd())
-# st.write("Does rasters folder exist?", os.path.exists("rasters"))
+st.write("Current working directory:", os.getcwd())
+st.write("Does rasters folder exist?", os.path.exists("rasters"))
 
-# if os.path.exists("rasters"):
-#     st.write("Files in rasters:")
-#     st.write(os.listdir("rasters"))
+if os.path.exists("rasters"):
+    st.write("Files in rasters:")
+    st.write(os.listdir("rasters"))
 m = create_map()
 output = st_folium(
     m,
