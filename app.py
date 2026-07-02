@@ -1,35 +1,71 @@
 
-import download_data
-import joblib
-import matplotlib.pyplot as plt
-import pandas as pd
-import shap
+# import download_data
+# import joblib
+# import matplotlib.pyplot as plt
+# import pandas as pd
+# import shap
+# import streamlit as st
+# from geopy.geocoders import Nominatim
+# from streamlit_folium import st_folium
+
+# from utils.map_utils import create_map
+# from utils.raster_utils import get_all_values
+# # Import scenario helper and new recommendation component
+# from utils.scenario import apply_slider_mitigation, run_batch_optimization
+# from utils.recommendation import generate_shap_recommendation
+
+# # Page configuration
+# st.set_page_config(
+#     layout="wide",
+#     page_title="Urban Heat Intelligence Platform"
+# )
+
+# st.title("🌍 Urban Heat Intelligence Platform")
+# import os
+
+# st.write("Raster folder exists:", os.path.exists("rasters"))
+
+# if os.path.exists("rasters"):
+#     st.write("Contents of rasters folder:")
+#     st.write(os.listdir("rasters"))
+# st.markdown("Click anywhere on the map below to analyze local urban heat metrics.")
 import streamlit as st
-from geopy.geocoders import Nominatim
-from streamlit_folium import st_folium
 
-from utils.map_utils import create_map
-from utils.raster_utils import get_all_values
-# Import scenario helper and new recommendation component
-from utils.scenario import apply_slider_mitigation, run_batch_optimization
-from utils.recommendation import generate_shap_recommendation
-
-# Page configuration
+# 1. Page configuration MUST be the absolute first Streamlit command
 st.set_page_config(
     layout="wide",
     page_title="Urban Heat Intelligence Platform"
 )
 
 st.title("🌍 Urban Heat Intelligence Platform")
+
+# 2. Run the downloader script inside a loading spinner
+with st.spinner("Syncing geospatial data layers from cloud storage... Please wait."):
+    import download_data 
+
+# 3. Your regular imports continue below...
 import os
+import joblib
+import matplotlib.pyplot as plt
+import pandas as pd
+import shap
+from geopy.geocoders import Nominatim
+from streamlit_folium import st_folium
 
+from utils.map_utils import create_map
+from utils.raster_utils import get_all_values
+from utils.scenario import apply_slider_mitigation, run_batch_optimization
+from utils.recommendation import generate_shap_recommendation
+
+# 4. Keep your debug checks—they are incredibly helpful for checking the deployment logs!
 st.write("Raster folder exists:", os.path.exists("rasters"))
-
 if os.path.exists("rasters"):
     st.write("Contents of rasters folder:")
     st.write(os.listdir("rasters"))
+
 st.markdown("Click anywhere on the map below to analyze local urban heat metrics.")
 
+# ... Keep the rest of your original app.py exactly as it was below this line ...
 # ------------------------------------------------------------------
 # INITIALIZE & CACHE MODELS/EXPLAINERS
 # ------------------------------------------------------------------
@@ -45,6 +81,14 @@ geolocator = Nominatim(user_agent="uhi_dashboard")
 # ==================================================================
 # 1. FULL WIDTH MAP SECTION
 # ==================================================================
+import os
+
+st.write("Current working directory:", os.getcwd())
+st.write("Does rasters folder exist?", os.path.exists("rasters"))
+
+if os.path.exists("rasters"):
+    st.write("Files in rasters:")
+    st.write(os.listdir("rasters"))
 m = create_map()
 output = st_folium(
     m,

@@ -4,8 +4,24 @@ import math
 import numpy as np
 import rasterio
 
+# rasters = {
+#     "LST": "rasters/Predicted_LST_Clipped11.tif",
+#     "Heat Stress": "rasters/HeatStress_Final_final_tiff.tiff",
+#     "NDVI": "rasters/Final_NDVI_Delhi.tif",
+#     "NDBI": "rasters/Final_NDBI_Delhi.tif",
+#     "NDWI": "rasters/Final_NDWI_Delhi.tif",
+#     "Air Temperature": "rasters/Final_AirTemp_Delhi.tif",
+#     "Humidity": "rasters/Final_Humidity_Delhi.tif",
+#     "Wind Speed": "rasters/Final_WindSpeed_Delhi.tif",
+#     "Albedo": "rasters/Final_Albedo_Delhi.tif",
+#     "Building Density": "rasters/Final_BuildingDensity_Delhi.tif",
+#     "Cooling Capacity": "rasters/cc.tif",
+#     "Heat Mitigation": "rasters/hm.tif",
+#     "Invest Air Temp": "rasters/air_temperature.tif"
+
+# }
 rasters = {
-    "LST": "rasters/Predicted_LST_Clipped11.tif",
+    "LST": "rasters/HeatStress_Final_final_tiff.tiff",
     "Heat Stress": "rasters/HeatStress_Final_final_tiff.tiff",
     "NDVI": "rasters/Final_NDVI_Delhi.tif",
     "NDBI": "rasters/Final_NDBI_Delhi.tif",
@@ -17,8 +33,7 @@ rasters = {
     "Building Density": "rasters/Final_BuildingDensity_Delhi.tif",
     "Cooling Capacity": "rasters/cc.tif",
     "Heat Mitigation": "rasters/hm.tif",
-    "Invest Air Temp": "rasters/air_temperature.tif"
-
+    "Invest Air Temp": "rasters/T_air.tif"  # Updated to match your actual filename T_air.tif
 }
 
 def read_value(path, lat, lon):
