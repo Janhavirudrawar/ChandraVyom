@@ -286,8 +286,8 @@ streamlit run app.py
 ---
 
 # 👥 Team
+This project has been developed as a GeoAI‑based climate‑tech innovation and is submitted for evaluation under Idea Hackathon 6.0.
 
-Developed as part of the **ISRO Hackathon**.
 
 ---
 
